@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS sprite animation</title>
+    <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+    <link href="https://hpcodecraft.me/assets/styles/styles.css" rel="stylesheet" type="text/css">
+    <link href="animation.css" rel="stylesheet" type="text/css">
+    <style>
+      body { width: 100%; margin: 0; }
+      .content { margin-top: 0; }
+
+			#animation-still {
+				position: relative;
+				width: 100px;
+				height: 100px;
+				background: url(sprite.png) 0px 0px no-repeat;
+			}
+
+			#animation-speed {
+        position: relative;
+				margin: 2rem 1rem 0 0;
+        font-size: 1rem;
+			}
+
+			#animation-speed:before {
+				content: 'slow';
+				position: absolute;
+				top: 15px;
+				left: 0;
+				color: #777;
+        font-family: 'Open Sans Condensed', sans-serif;
+			}
+
+			#animation-speed:after {
+				content: 'fast';
+				position: absolute;
+				top: 15px;
+				right: 0;
+				color: #777;
+        font-family: 'Open Sans Condensed', sans-serif;
+			}
+		</style>
+	</head>
+	<body class="content" onload='parent.resizeIframe(document.body.scrollHeight)'>
+
+    <p>The original sprite image containing all frames of the animation:
+      <div><img src="sprite.png"/></div>
+    </p>
+
+    <p>The still sprite with the first frame loaded:
+      <div id="animation-still"></div>
+    </p>
+
+    <p>The final animated sprite:
+      <div id="animation" class="medium"></div>
+      <input id="animation-speed" type="range" min="1" max="3" step="1" value="2"/>
+      <a id="animation-pause">pause</a>
+    </p>
+
+    <br>
+
+    <p>You can adjust the animation speed and pause the animation on-the-fly. This is done with a piece of Javascript that just applies different CSS classes to the animation. Click "view source" above to see how it's done.
+    </p>
+
+    <script src="animation.js"></script>
+	</body>
+</html>
