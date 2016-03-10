@@ -1,0 +1,187 @@
+.shadow {
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.75);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  position: relative;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+a,
+a:hover,
+a:active,
+a:visited {
+  color: #01ac5e;
+}
+h1 {
+  position: relative;
+  margin: 0 0 .5em 0;
+  text-transform: uppercase;
+}
+h2 {
+  margin: .5em 0;
+}
+canvas {
+  width: 480px;
+  height: 330px;
+}
+.page {
+  width: 100%;
+}
+.page.highscore {
+  padding-top: 2em;
+}
+.font-gum {
+  position: relative;
+  font-family: 'Coda Caption', sans-serif;
+  font-size: 3em;
+  color: #01ac5e;
+  z-index: 1;
+}
+.font-spin {
+  position: relative;
+  font-family: 'Playfair Display SC', serif;
+  color: #f7d91f;
+  border: 0.1em solid #f7d91f;
+  border-radius: .25em;
+  width: 3em;
+  height: 1.25em;
+  line-height: 1.1em;
+  font-size: 1.5em;
+  margin: -0.75em auto 1em auto;
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  transform: rotate(-15deg);
+  box-shadow: inset 2px 5px 10px 0 rgba(0, 0, 0, 0.75), 2px 5px 10px 0 rgba(0, 0, 0, 0.75);
+  z-index: 0;
+}
+.player {
+  margin: .5em;
+}
+.player input {
+  font-size: 1em;
+  padding: 0 .25em;
+}
+.kelly {
+  position: relative;
+  margin: 0 auto;
+  width: 480px;
+  height: 330px;
+  background-image: url(../kelly.jpg);
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.floater {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 480px;
+  color: #f7d91f;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  -webkit-animation: floatup 1s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation: floatup 1s;
+  -moz-animation-fill-mode: forwards;
+  -o-animation: floatup 1s;
+  -o-animation-fill-mode: forwards;
+  animation: floatup 1s;
+  animation-fill-mode: forwards;
+  text-shadow: 1px 0 1px #000000, 1px 1px 1px #000000, -1px 0 1px #000000, -1px -1px 1px #000000;
+}
+@-webkit-keyframes floatup {
+  from {
+    top: 100px;
+    opacity: 1;
+  }
+  to {
+    top: -100px;
+    opacity: 0;
+  }
+}
+@-moz-keyframes floatup {
+  from {
+    top: 100px;
+    opacity: 1;
+  }
+  to {
+    top: -100px;
+    opacity: 0;
+  }
+}
+@-o-keyframes floatup {
+  from {
+    top: 100px;
+    opacity: 1;
+  }
+  to {
+    top: -100px;
+    opacity: 0;
+  }
+}
+@keyframes floatup {
+  from {
+    top: 100px;
+    opacity: 1;
+  }
+  to {
+    top: -100px;
+    opacity: 0;
+  }
+}
+table {
+  width: 480px;
+  margin: 0 auto;
+}
+table th {
+  padding: .25em 1em;
+  text-align: left;
+}
+table td {
+  text-align: left;
+  padding: .25em 1em;
+}
+table td.number {
+  text-align: right;
+}
+button {
+  padding: .25em;
+  float: right;
+  line-height: 1.5em;
+}
+p {
+  margin: 1em 0;
+}
+.leapmotion-status {
+  position: relative;
+  color: red;
+}
+.leapmotion-status label:before {
+  content: "No Leapmotion controller found.";
+}
+.leapmotion-status.connected {
+  color: #01ac5e;
+}
+.leapmotion-status.connected label:before {
+  content: "Leapmotion controller connected!";
+}
+footer {
+  padding: 1em;
+}
+footer .social {
+  position: relative;
+  width: 245px;
+  margin: 1em auto;
+}
