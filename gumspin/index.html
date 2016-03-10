@@ -15,7 +15,7 @@
     <link rel="canonical" href="http://gumspin.hpcodecraft.me">
 
     <link href='http://fonts.googleapis.com/css?family=Coda+Caption:800|Playfair+Display+SC:400,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/gumspin.css">
+    <link rel="stylesheet" href="gumspin.css">
   </head>
   <body>
     <div class="page">
@@ -23,7 +23,6 @@
         <div class="font-gum shadow">gum</div>
         <div class="font-spin shadow">spin</div>
       </h1>
-      <div class="player">Name for highscores: <input type="text" id="highscore-name" maxlength="100" value="Anonymous"></div>
       <div class="kelly">
         <canvas id="canvas" width="480" height="320"></canvas>
       </div>
@@ -51,26 +50,7 @@
       </div>
     </div>
 
-    <div class="page highscore">
-      <h1 class="font-gum shadow">Top highscores</h1>
-      <div id="highscore-table"></div>
-    </div>
-
     <footer>
-      <div class="social">
-        <!-- AddThis Button BEGIN -->
-        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-        <a class="addthis_button_preferred_1"></a>
-        <a class="addthis_button_preferred_2"></a>
-        <a class="addthis_button_preferred_3"></a>
-        <a class="addthis_button_preferred_4"></a>
-        <a class="addthis_button_compact"></a>
-        <a class="addthis_counter addthis_bubble_style"></a>
-        </div>
-        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a5f882312d4fc7"></script>
-        <!-- AddThis Button END -->
-      </div>
       made by <a href="http://hpcodecraft.me">hpcodecraft</a> in 2013
     </footer>
 
@@ -82,7 +62,6 @@
         speed = 50,
         clockwise = true,
         animationRunning = false,
-        player = localStorage.getItem('player') || 'Anonymous',
         device = 'Mouse';
 
 
@@ -144,8 +123,6 @@
             txt.innerHTML = 'too slow, chain broken!';
             txt.className = 'floater';
         kelly.appendChild(txt);
-
-        if(score == highScore) submitHighscore();
       }
 
       function extendChain() {
@@ -185,15 +162,7 @@
         }
       }
 
-      function setPlayer() {
-        localStorage.setItem('player', this.value);
-      }
-
       function initUI() {
-        document.querySelector('#highscore-name').value = player;
-        document.querySelector('#highscore-name').oninput = setPlayer;
-        document.querySelector('#highscore-name').onpaste = setPlayer;
-
         document.querySelector('.longest-chain').innerHTML = longestChain;
         document.querySelector('.highscore').innerHTML = highScore;
 
@@ -222,92 +191,6 @@
       }
 
       initUI();
-
-
-      // highscore handling
-      var http = new XMLHttpRequest();
-
-      function submitHighscore() {
-        var data = 'name='+player+'&score='+highScore+'&chain='+longestChain+'&device='+device;
-        http.open('POST', 'submithighscore.php', true);
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.send(data);
-      }
-
-      function listHighscore() {
-        http.open('GET', 'listhighscore.php');
-        http.onreadystatechange = function(){
-          if(http.readyState == 4 && http.status == 200) {
-            var highscores  = JSON.parse(http.responseText),
-                table       = document.createElement('table'),
-                tableHead   = document.createElement('tr'),
-                headCells = [
-                  document.createElement('th'),
-                  document.createElement('th'),
-                  document.createElement('th'),
-                  document.createElement('th'),
-                  document.createElement('th')
-                ];
-
-            headCells[0].innerHTML = '&nbsp;';
-            headCells[1].innerHTML = 'Name';
-            headCells[2].innerHTML = 'Score';
-            headCells[3].innerHTML = 'Chain';
-            headCells[4].innerHTML = 'Device';
-
-            for( var i in headCells ) tableHead.appendChild(headCells[i]);
-            table.appendChild(tableHead);
-
-            for(var i in highscores) {
-              var entry       = highscores[i],
-                  row         = document.createElement('tr'),
-                  cellplace   = document.createElement('td'),
-                  cellname    = document.createElement('td'),
-                  cellscore   = document.createElement('td'),
-                  cellchain   = document.createElement('td'),
-                  celldevice  = document.createElement('td');
-
-              cellplace.innerHTML = (+i+1)+".";
-              row.appendChild(cellplace);
-
-              cellname.innerHTML = entry.name;
-              row.appendChild(cellname);
-
-              cellscore.innerHTML = entry.score;
-              row.appendChild(cellscore);
-
-              cellchain.innerHTML = entry.chain;
-              row.appendChild(cellchain);
-
-              celldevice.innerHTML = entry.device;
-              row.appendChild(celldevice);
-
-              table.appendChild(row);
-            }
-
-            var tableContainer = document.querySelector('#highscore-table');
-            while( tableContainer.hasChildNodes() ){
-              tableContainer.removeChild(tableContainer.lastChild);
-            }
-            tableContainer.appendChild(table);
-          }
-        }
-        http.send()
-      }
-
-      setInterval(listHighscore, 60000); // update highscore list every minute
-      listHighscore();
-    </script>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-24332236-9', 'gumspin.hpcodecraft.me');
-      ga('send', 'pageview');
-
     </script>
   </body>
 </html>
