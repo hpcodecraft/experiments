@@ -15,7 +15,6 @@ body {
 body {
   position: relative;
   text-align: center;
-  font-family: Arial, sans-serif;
 }
 
 a,
@@ -153,8 +152,4 @@ p {
 
 .leapmotion-status.connected label:before {
   content: "Leapmotion controller connected!";
-}
-
-footer {
-  padding: 1em;
 }

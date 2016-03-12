@@ -11,37 +11,34 @@
 
     <meta property="og:title" content="GUMSPIN!">
     <meta property="og:image" content="share.jpg">
-
+    <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+    <link href="https://hpcodecraft.me/assets/styles/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="gumspin.css">
   </head>
-  <body>
-      <div class="kelly"></div>
-      <h2 class="spin-counter">You spun the gum <strong>0</strong> times.</h2>
-      <table>
-        <tr>
-          <td>Chain</td>
-          <td class="chain number">0</td>
-          <td>Score</td>
-          <td class="score number">0</td>
-          <td><button class="reset-score">reset</button></td>
-        </tr>
-        <tr>
-          <td>Longest Chain</td>
-          <td class="longest-chain number">-</td>
-          <td>Highscore</td>
-          <td class="highscore number">-</td>
-          <td><button class="reset-highscore">reset</button></td>
-        </tr>
-      </table>
-      <p class="instructions"><em>Hint: Draw circles on Kelly with your mouse.</em></p>
+  <body onload='parent.resizeIframe(document.body.scrollHeight)'>
+    <div class="kelly"></div>
+    <h2 class="spin-counter">You spun the gum <strong>0</strong> times.</h2>
+    <table>
+      <tr>
+        <td>Chain</td>
+        <td class="chain number">0</td>
+        <td>Score</td>
+        <td class="score number">0</td>
+        <td><button class="reset-score">reset</button></td>
+      </tr>
+      <tr>
+        <td>Longest Chain</td>
+        <td class="longest-chain number">-</td>
+        <td>Highscore</td>
+        <td class="highscore number">-</td>
+        <td><button class="reset-highscore">reset</button></td>
+      </tr>
+    </table>
+    <p class="instructions"><em>Hint: Draw circles on Kelly with your mouse.</em></p>
 
-      <div class="leapmotion-status">
-        <label></label>
-      </div>
-
-    <footer>
-      made by <a href="http://hpcodecraft.me">hpcodecraft</a> in 2013
-    </footer>
+    <div class="leapmotion-status">
+      <label></label>
+    </div>
 
     <script>
     var kelly = document.querySelector('.kelly'),
