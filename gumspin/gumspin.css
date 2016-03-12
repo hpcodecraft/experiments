@@ -25,63 +25,24 @@ a:visited {
   color: #01ac5e;
 }
 
-h1 {
-  position: relative;
-  margin: 0 0 .5em 0;
-  text-transform: uppercase;
-}
-
 h2 {
   margin: .5em 0;
 }
 
 canvas {
-  width: 480px;
-  height: 330px;
-}
-
-.page {
-  width: 100%;
-}
-
-.font-gum {
-  position: relative;
-  font-family: 'Coda Caption', sans-serif;
-  font-size: 3em;
-  color: #01ac5e;
-  z-index: 1;
-}
-
-.font-spin {
-  position: relative;
-  font-family: 'Playfair Display SC', serif;
-  color: #f7d91f;
-  border: 0.1em solid #f7d91f;
-  border-radius: .25em;
-  width: 3em;
-  height: 1.25em;
-  line-height: 1.1em;
-  font-size: 1.5em;
-  margin: -0.75em auto 1em auto;
-  -moz-transform: rotate(-20deg);
-  -ms-transform: rotate(-20deg);
-  -o-transform: rotate(-20deg);
-  -webkit-transform: rotate(-20deg);
-  transform: rotate(-15deg);
-  box-shadow: inset 2px 5px 10px 0 rgba(0, 0, 0, 0.75), 2px 5px 10px 0 rgba(0, 0, 0, 0.75);
-  z-index: 0;
+  pointer-events: none;
 }
 
 .kelly {
   position: relative;
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   width: 480px;
   height: 330px;
   background-image: url(kelly.jpg);
   background-size: cover;
   background-position: 0 0;
   background-repeat: no-repeat;
-  z-index: 2;
+  z-index: 0;
 }
 
 .floater {

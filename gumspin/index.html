@@ -5,27 +5,17 @@
     <title>GUMSPIN</title>
 
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="Let's always be stupid, forever!">
+    <meta name="description" content="A little experiment with the Leap Motion Controller, feat. Kelly Bundy.">
     <meta name="author" content="Volker Wieban">
     <meta name="keywords" content="leapmotion, gum, spin, kelly, al bundy">
 
     <meta property="og:title" content="GUMSPIN!">
-    <meta property="og:image" content="kelly.jpg">
+    <meta property="og:image" content="share.jpg">
 
-    <link rel="canonical" href="http://gumspin.hpcodecraft.me">
-
-    <link href='http://fonts.googleapis.com/css?family=Coda+Caption:800|Playfair+Display+SC:400,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="gumspin.css">
   </head>
   <body>
-    <div class="page">
-      <h1>
-        <div class="font-gum shadow">gum</div>
-        <div class="font-spin shadow">spin</div>
-      </h1>
-      <div class="kelly">
-        <canvas id="canvas" width="480" height="320"></canvas>
-      </div>
+      <div class="kelly"></div>
       <h2 class="spin-counter">You spun the gum <strong>0</strong> times.</h2>
       <table>
         <tr>
@@ -48,7 +38,6 @@
       <div class="leapmotion-status">
         <label></label>
       </div>
-    </div>
 
     <footer>
       made by <a href="http://hpcodecraft.me">hpcodecraft</a> in 2013
@@ -100,7 +89,10 @@
     }
     </script>
 
-    <script src="js/leap.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
+    <script src="//js.leapmotion.com/leap-0.6.4.js"></script>
+    <script src="//js.leapmotion.com/leap-plugins-0.1.11.js"></script>
+    <script src="//js.leapmotion.com/leap.rigged-hand-0.1.7.js"></script>
     <script src="js/gumspin-leapmotion.js"></script>
     <script src="js/gumspin-mouse.js"></script>
 
