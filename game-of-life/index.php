@@ -10,7 +10,6 @@
   <head>
     <meta charset="utf-8">
     <title>Conway's Game of Life</title>
-    <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
     <link href="https://hpcodecraft.me/assets/styles/styles.css" rel="stylesheet" type="text/css">
     <style>
       body { width: 100%; margin: 0; }
@@ -21,7 +20,29 @@
         width: 100%;
         text-align: left;
         top: 0;
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
+      }
+
+      nav > * {
+        margin-right: 1rem;
+      }
+
+      a.active {
+        position: relative;
+      }
+
+      a.active:after {
+        content:'';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        width: 0;
+        height: 0;
+        border-top: solid 5px limegreen;
+        border-left: solid 5px transparent;
+        border-right: solid 5px transparent;
+        transform: rotate(180deg);
       }
 
 			#gol {
@@ -36,7 +57,7 @@
 	<body class="content" onload='parent.resizeIframe(document.body.scrollHeight)'>
 
     <nav>
-      Choose a renderer:
+      <span>Choose a renderer:</span>
       <a class="DOM <?=($renderer=='DOM'?'active':'')?>" href="./?r=DOM">DOM</a>
       <a class="Canvas <?=($renderer=='Canvas'?'active':'')?>" href="./?r=Canvas">Canvas</a>
       <a class="WebGL <?=($renderer=='WebGL'?'active':'')?>" href="./?r=WebGL">WebGL</a>
